@@ -1,0 +1,26 @@
+public class Object{
+public static void main (String []args)throws SQLException, UnsupportedEncodingException { String input = "{\"a\":{\"b\":{\"c\":{\"d\"}}}}";
+Object object = new Object();
+System.out .println(object.parseAndGetValue (input, "a/b/ct' ).);
+}
+
+public char parseAndGetValue(String input, String key) { String value = "";
+String[]keys = key .split("/");
+
+for(String k:keys) {
+input = getValue (input, k .charAt (0));
+}
+return input.charAt (2);	I.
+}
+
+public String getValue (String input, char key) { String value = '"';
+int count =0;
+for(int i=e; i<input .length ); i++){ char ch = input.charAt (i);
+if(c i =y fnput .substring (i+3,input .length()-1-count);
+}elbsreeaifk;(ch l ='"' && chi= '{' && chi= '}' && chi= ':'){
+count++;
+}
+}
+return value;
+}
+}
