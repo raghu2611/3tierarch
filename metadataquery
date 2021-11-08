@@ -474,8 +474,7 @@ namespace Amazon.EC2.Util
     /// Returns information about the last time the instance profile was updated, 
     /// including the instance's LastUpdated date, InstanceProfileArn, and InstanceProfileId.
     /// </summary>
-    [Obsolete("This class is deprecated and will be removed in a future release." 
-              + " Please update your code to use the Amazon.Util.IAMInstanceProfileMetadata class, located in the AWSSDK.Core assembly.")]
+   
     public class IAMInfo
     {
         /// <summary>
@@ -483,14 +482,14 @@ namespace Amazon.EC2.Util
         /// </summary>
         public string Code { get; set; }
 
-        /// <summary>
+       
         /// Further information about the status of the instance profile
-        /// </summary>
+        
         public string Message { get; set; }
 
-        /// <summary>
+       
         /// The date and time the instance profile was updated
-        /// </summary>
+       
         public DateTime LastUpdated { get; set; }
 
         /// <summary>
@@ -507,8 +506,7 @@ namespace Amazon.EC2.Util
     /// <summary>
     /// The temporary security credentials (AccessKeyId, SecretAccessKey, SessionToken, and Expiration) associated with the IAM role.
     /// </summary>
-    [Obsolete("This class is deprecated and will be removed in a future release." 
-              + " Please update your code to use the Amazon.Util.IAMSecurityCredentialMetadata class, located in the AWSSDK.Core assembly.")]
+    
     public class IAMSecurityCredential
     {
         /// <summary>
@@ -552,11 +550,10 @@ namespace Amazon.EC2.Util
         public DateTime Expiration { get; set; }
     }
 
-    /// <summary>
+  
     /// All of the metadata associated with a network interface on the instance.
-    /// </summary>
-    [Obsolete("This class is deprecated and will be removed in a future release." 
-              + " Please update your code to use the Amazon.Util.NetworkInterfaceMetadata class, located in the AWSSDK.Core assembly.")]
+   
+ 
     public class NetworkInterface
     {
         private  string _path;
@@ -585,12 +582,8 @@ namespace Amazon.EC2.Util
             get { return _mac; }
         }
 
-        /// <summary>
-        /// The ID of the owner of the network interface. 
-        /// </summary>
-        /// <remarks>
-        /// In multiple-interface environments, an interface can be attached by a third party, such as Elastic Load Balancing. 
-        /// Traffic on an interface is always billed to the interface owner.
+        
+       
         /// </remarks>
         public string OwnerId
         {
@@ -691,9 +684,7 @@ namespace Amazon.EC2.Util
 
         /// <summary>
         /// Get the private IPv4 address(es) that are associated with the public-ip address and assigned to that interface.
-        /// </summary>
-        /// <param name="publicIp">The public IP address</param>
-        /// <returns>Private IPv4 address(es) associated with the public IP address</returns>
+        
         public IEnumerable<string> GetIpV4Association(string publicIp)
         {
             return EC2Metadata.GetItems(string.Format(CultureInfo.InvariantCulture, "{0}ipv4-associations/{1}", _path, publicIp));
